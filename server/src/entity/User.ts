@@ -1,33 +1,41 @@
-import {Entity, PrimaryGeneratedColumn, Column,OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column,OneToMany,BaseEntity} from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
-import {  Locate } from './Locate.ts';
+import {  Locate } from './Locate';
 
 @ObjectType()
 @Entity()
-export class User {
+export class User  extends BaseEntity {
 
   @Field(() => ID)
   @PrimaryGeneratedColumn()
   id: number;
+  
+  @Field()
+  @Column({ unique: true })
+  username: string;
 
-    @Column({ unique: true })
-    username: string;
+  @Column()
+  password: string;
 
-    @Column()
-    password: string;
+  @Field()
+  @Column()
+  birthday: string;
 
-    @Column()
-    birthday: string;
+  @Field()
+  @Column()
+  country: string;
 
-    @Column()
-    country: string;
+  @Field()  
+  @Column({ unique: true })
+  email: string;
 
-    @Column()
-    city: string;
+  @Field()
+  @Column()
+  city: string;
 
-    @Field(type => Locate)
-    @OneToMany(type => Locate, locate => locate.user,{ cascade: true})
-    locates: [Locate];
+  @Field(type => Locate)
+  @OneToMany(type => Locate, locate => locate.user,{ cascade: true})
+  locates: [Locate];
 
 
 

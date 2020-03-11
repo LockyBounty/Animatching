@@ -1,15 +1,15 @@
-import {Entity, PrimaryGeneratedColumn, Column,ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column,ManyToOne,BaseEntity} from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
 import {  User } from './User.ts';
 
 @ObjectType()
 @Entity()
-export class Locate {
+export class Locate extends BaseEntity  {
     @Field(() => ID)
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ unique: true })
+    @Column()
     date: string;
 
     @Column()

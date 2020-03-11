@@ -1,23 +1,21 @@
 import { Length } from 'class-validator';
 import { Field, InputType } from "type-graphql";
-import { isUserAlreadyExists } from './isUserAlreadyExists';
+import { isEmailAlreadyExists } from './isEmailAlreadyExists';
 
 @InputType()
 export class RegisterStore{
   @Field()
   @Length(1,255)
-  @isUserAlreadyExists({message: "Username already exists"})
-  shopName:string;
+  @isEmailAlreadyExists({message: "Email already in use!"})
+  username:string;
 
   @Field()
   @Length(1,255)
-  street: string;
+  birthday: string;
 
   @Field()
-  number: number;
+  country: string;
 
-  @Field()
-  postalCode: number;
 
   @Field()
   @Length(1,255)
