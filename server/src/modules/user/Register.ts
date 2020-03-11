@@ -1,5 +1,5 @@
 import { Resolver, Query } from 'type-graphql';
-//import { User } from "../../entity/User";
+import { User } from "../../entity/User";
 
 @Resolver()
 
@@ -8,4 +8,9 @@ export class RegisterUserResolver{
   async hello(){
     return "Hello World!";
   }
+
+  @Mutation(() => User)
+  async createUser(
+    form
+  )
 }
