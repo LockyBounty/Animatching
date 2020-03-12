@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
+
+
 export default makeStyles(theme => ({
   '@global': {
     ul: {
@@ -8,16 +10,11 @@ export default makeStyles(theme => ({
       listStyle: 'none',
     },
   },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
+  filterList:{
+      maxWidth:'300px',
+      display:'flex',
+      flexDirection:'row',
+      border:'2px solid #c4c4c4',
   }
+
 }));
